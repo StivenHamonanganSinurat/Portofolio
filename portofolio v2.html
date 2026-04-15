@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stiven Sinurat | Data Scientist & Analyst</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 48px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        /* ========== MODE EDIT - MATIKAN SEBELUM PUSH KE GITHUB ========== */
+        /* HAPUS tanda /* pada baris di bawah untuk AKTIFKAN mode edit */
+        /* KASIH /* di depan baris untuk MATIKAN mode edit (PUBLIK) */
+        /* .edit-mode-buttons { display: flex !important; } */
+        .edit-mode-buttons {
+            display: none !important;
+        }
+
+        /* ================================================================= */
+
+        .edit-bar {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            padding: 20px 40px;
+            background: #1e1b4b;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .edit-btn {
+            background: #f59e0b;
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .edit-btn:hover {
+            transform: scale(1.02);
+            background: #d97706;
+        }
+
+        .edit-btn.reset {
+            background: #475569;
+        }
+
+        .edit-btn.reset:hover {
+            background: #334155;
+        }
+
+        .edit-btn.active {
+            background: #10b981;
+        }
+
+        .editing [contenteditable="true"] {
+            background-color: #fef3c7;
+            outline: 2px dashed #f59e0b;
+            padding: 4px 8px;
+            border-radius: 12px;
+            transition: 0.1s;
+        }
+
+        /* Header Section - Glassmorphism */
+        .header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            align-items: center;
+            padding: 50px 60px;
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%);
+            color: white;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #f59e0b;
+            box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.4);
+            background: white;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.02);
+        }
+
+        .header-info {
+            flex: 2;
+        }
+
+        .header-info h1 {
+            font-size: 2.8rem;
+            background: linear-gradient(135deg, #fff, #fcd34d);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            color: #fcd34d;
+            font-weight: 500;
+            margin-bottom: 20px;
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 5px 18px;
+            border-radius: 40px;
+            backdrop-filter: blur(5px);
+        }
+
+        .bio {
+            line-height: 1.8;
+            opacity: 0.95;
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 18px 22px;
+            border-radius: 28px;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 8px 20px;
+            border-radius: 40px;
+            transition: all 0.25s;
+            font-weight: 500;
+            backdrop-filter: blur(4px);
+        }
+
+        .contact-info a:hover {
+            background: #f59e0b;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Section styles */
+        .section {
+            padding: 0 50px 30px 50px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            border-left: 6px solid #f59e0b;
+            padding-left: 20px;
+            margin: 40px 0 30px 0;
+            color: #1e1b4b;
+        }
+
+        /* Grid & Cards */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 24px;
+            border: 1px solid #eef2ff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.15);
+            border-color: #fcd34d;
+        }
+
+        .card h3 {
+            color: #f59e0b;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+
+        .card .company,
+        .card .date {
+            color: #6b7280;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .card ul {
+            padding-left: 20px;
+            color: #374151;
+        }
+
+        .card li {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+            color: #4f46e5;
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 5px 6px 0 0;
+            transition: 0.2s;
+        }
+
+        .skill-tag:hover {
+            background: #f59e0b;
+            color: white;
+            transform: scale(1.02);
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 24px;
+            padding: 24px;
+            border: 1px solid #e2e8f0;
+            transition: 0.25s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+        }
+
+        .project-card:hover {
+            border-color: #f59e0b;
+            box-shadow: 0 15px 30px -10px rgba(245, 158, 11, 0.15);
+        }
+
+        .project-card h3 {
+            color: #1e1b4b;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            padding: 14px 36px;
+            border-radius: 60px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.25s;
+            margin: 20px 0 40px;
+            box-shadow: 0 8px 18px rgba(245, 158, 11, 0.3);
+        }
+
+        .btn-download:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 25px rgba(245, 158, 11, 0.5);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background: #f8fafc;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        @media (max-width: 700px) {
+            .header {
+                padding: 30px;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .section {
+                padding: 0 20px 20px 20px;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container" id="app">
+        <!-- TOMBOL EDIT (bisa dihidupkan/mati dari CSS) -->
+        <div class="edit-bar edit-mode-buttons">
+            <button class="edit-btn" id="toggleEditBtn"><i class="fas fa-pen"></i> Aktifkan Mode Edit</button>
+            <button class="edit-btn reset" id="resetBtn"><i class="fas fa-undo-alt"></i> Reset ke Default</button>
+        </div>
+
+        <!-- HEADER / PROFIL -->
+        <div class="header">
+            <img class="profile-img"
+                src="https://drive.google.com/thumbnail?id=15a-ySwIcfuDXo3NTe2kdjqADJ8So1RaF&sz=w500" alt="Stiven"
+                id="profileImg"
+                onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Stiven+Sinurat&background=f59e0b&color=fff&size=180&bold=true&length=2';">
+            <div class="header-info">
+                <h1 id="name">Stiven Hamonangan Sinurat</h1>
+                <div class="job-title" id="jobTitle">📊 Data Scientist | Data Analyst | Business Intelligence</div>
+                <div class="bio" id="bio">
+                    🚀 Saya adalah <strong>Data Enthusiast</strong> yang percaya bahwa setiap data memiliki cerita dan
+                    solusi.
+                    Dengan logika tajam dan kecintaan pada <strong>problem-solving berbasis data</strong>, saya mampu
+                    mengubah
+                    kumpulan angka menjadi <strong>wawasan strategis</strong> yang mendorong keputusan bisnis cerdas.
+                    Keahlian komunikasi saya memungkinkan kolaborasi lintas tim yang efektif, serta menyajikan temuan
+                    kompleks menjadi <strong>visualisasi yang jelas, ringkas, dan impactful</strong>. Siap membantu
+                    organisasi Anda bertransformasi menuju <strong>data-driven culture</strong>.
+                </div>
+                <div class="contact-info">
+                    <a href="mailto:stivensinurat1999@gmail.com" id="emailLink"><i class="fas fa-envelope"></i>
+                        stivensinurat1999@gmail.com</a>
+                    <a href="https://github.com/StivenHamonanganSinurat" target="_blank" id="githubLink"><i
+                            class="fab fa-github"></i> GitHub</a>
+                    <a href="https://www.linkedin.com/in/stiven-hamonangan-sinurat" target="_blank" id="linkedinLink"><i
+                            class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://scholar.google.co.id/citations?user=f3ceUwoAAAAJ" target="_blank"
+                        id="scholarLink"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- PENGALAMAN KERJA -->
+        <div class="section">
+            <h2 class="section-title" id="workTitle">💼 Pengalaman Profesional</h2>
+            <div class="grid-2" id="workContainer"></div>
+        </div>
+
+        <!-- PENDIDIKAN -->
+        <div class="section">
+            <h2 class="section-title" id="eduTitle">🎓 Pendidikan & Akademik</h2>
+            <div class="grid-2" id="educationContainer"></div>
+        </div>
+
+        <!-- KEAHLIAN INTERAKTIF -->
+        <div class="section">
+            <h2 class="section-title" id="skillsTitle">⚡ Kompetensi & Tools</h2>
+            <div class="card">
+                <h3>🛠️ Hard Skills</h3>
+                <div id="hardSkills"></div>
+                <h3 style="margin-top:25px">🤝 Soft Skills</h3>
+                <div id="softSkills"></div>
+            </div>
+        </div>
+
+        <!-- PROYEK & RISET -->
+        <div class="section">
+            <h2 class="section-title" id="projectsTitle">📌 Proyek & Publikasi Ilmiah</h2>
+            <div class="grid-2" id="projectsContainer"></div>
+        </div>
+
+        <!-- SERTIFIKAT & PRESTASI -->
+        <div class="section">
+            <h2 class="section-title" id="certTitle">🏆 Sertifikasi & Pencapaian</h2>
+            <div class="card" id="achievementsContainer"></div>
+        </div>
+
+        <!-- DOWNLOAD CV -->
+        <div style="text-align: center;">
+            <a href="#" class="btn-download" id="downloadCVBtn">
+                <i class="fas fa-file-pdf"></i> Download CV Lengkap (PDF)
+            </a>
+        </div>
+
+        <footer>
+            <span id="footerText">© 2025 Stiven Hamonangan Sinurat | Data Scientist & Analyst | Built with 💡</span>
+        </footer>
+    </div>
+
+    <script>
+        // DATA SESUAI CV STIVEN
+        const defaultData = {
+            name: "Stiven Hamonangan Sinurat",
+            jobTitle: "📊 Data Scientist | Data Analyst | Business Intelligence",
+            bio: "🚀 Saya adalah Data Enthusiast yang percaya bahwa setiap data memiliki cerita dan solusi. Dengan logika tajam dan kecintaan pada problem-solving berbasis data, saya mampu mengubah kumpulan angka menjadi wawasan strategis yang mendorong keputusan bisnis cerdas. Keahlian komunikasi saya memungkinkan kolaborasi lintas tim yang efektif, serta menyajikan temuan kompleks menjadi visualisasi yang jelas, ringkas, dan impactful. Siap membantu organisasi Anda bertransformasi menuju data-driven culture.",
+            email: "stivensinurat1999@gmail.com",
+            github: "https://github.com/StivenHamonanganSinurat",
+            linkedin: "https://www.linkedin.com/in/stiven-hamonangan-sinurat",
+            scholar: "https://scholar.google.co.id/citations?user=f3ceUwoAAAAJ",
+            profileImg: "https://drive.google.com/thumbnail?id=15a-ySwIcfuDXo3NTe2kdjqADJ8So1RaF&sz=w500",
+            footerText: "© 2025 Stiven Hamonangan Sinurat | Data Scientist & Analyst | Built with 💡",
+
+            workExperience: [
+                { id: "w1", title: "Biro Administrasi Akademik", company: "Universitas Prima Indonesia", date: "2021 - Sekarang", desc: ["Mengelola layanan & pengelolaan data transaksi akademik", "Menyusun kalender akademik & administrasi kelulusan", "Update data kelembagaan ke Kementrian Dikti", "Menambah & mengawal program kerja program studi"] },
+                { id: "w2", title: "Asisten Dosen", company: "Universitas Prima Indonesia", date: "2020 - 2021", desc: ["Membantu kegiatan belajar mengajar & penelitian", "Mengelola nilai, kehadiran, dan konsultasi mahasiswa", "Pendampingan praktikum & tugas akhir"] },
+                { id: "w3", title: "Tim Akreditasi Sistem Informasi", company: "Universitas Prima Indonesia", date: "2022", desc: ["Mengumpulkan & menganalisis data untuk borang akreditasi", "Menyusun dokumen pendukung & konsultasi asesor", "Mendapatkan Akreditasi Baik Sekali"] },
+                { id: "w4", title: "Data Scientist Intern", company: "Dinas Ketenagakerjaan Kota Medan", date: "2020", desc: ["Input & rekonsiliasi data perusahaan", "Membangun rancangan aplikasi penggajian berbasis desktop", "Otomatisasi pelaporan data"] }
+            ],
+
+            education: [
+                { id: "e1", degree: "S1 Sistem Informasi", institution: "Universitas Prima Indonesia", gpa: "3.65/4.00", year: "2020 - 2024" },
+                { id: "e2", degree: "D3/S1 Sistem Informasi", institution: "STIKOM Medan", year: "2017 - 2020" },
+                { id: "e3", degree: "Teknik Mesin", institution: "SMK Negeri 2 Pematangsiantar", year: "2014 - 2017" }
+            ],
+
+            hardSkills: ["Python (Pandas, NumPy, Scikit-learn)", "Machine Learning", "Time Series Analysis", "NLP", "Power BI", "Looker Studio", "SPSS", "Excel (Advanced)", "SQL", "Data Mining", "Tableau", "Comptia Network+"],
+            softSkills: ["Analytical Thinking", "Problem Solving", "Team Collaboration", "Data Storytelling", "Time Management", "Critical Thinking", "Adaptability"],
+
+            projects: [
+                { id: "p1", name: "📄 Publikasi Internasional MECnIT 2021", desc: "Penelitian tentang Data Mining & Machine Learning untuk prediksi pola data akademik. Diterima sebagai conference paper internasional.", tech: "Python, Weka, RapidMiner" },
+                { id: "p2", name: "Modul Pengajaran Testing & Implementasi", desc: "Mengembangkan modul ajar untuk mata kuliah pengujian perangkat lunak dan implementasi sistem.", tech: "Software Testing, Documentation, UML" },
+                { id: "p3", name: "Time Series Forecasting dengan Python", desc: "Membangun model forecasting untuk data deret waktu menggunakan ARIMA dan Prophet.", tech: "Python, Statsmodels, Prophet" },
+                { id: "p4", name: "Dashboard UMKM Interaktif", desc: "Membuat dashboard analitik untuk memantau performa UMKM berbasis Power BI.", tech: "Power BI, DAX, Excel" }
+            ],
+
+            achievements: [
+                "🎓 Contributor Author - International Conference MECnIT 2021",
+                "🏆 Runner Up Expo UNPRI The Best UMKM (2021)",
+                "⭐ Akreditasi Baik Sekali (Tim Akreditasi Sistem Informasi 2022)",
+                "📜 CIBIA (Certified International Business Intelligence Associate)",
+                "📜 Python for Applied Statistics (Data Scientist) - 2022",
+                "📜 Data Analysis, Data Science & Machine Learning with R",
+                "📜 Udemy: Python for Data Analysis & Visualization",
+                "📜 Udemy: Machine Learning Python Beginner to Advance",
+                "📜 Time Series Analysis & Forecasting using Python",
+                "📜 Comptia Network+ & IT Fundamentals"
+            ]
+        };
+
+        let portfolioData = JSON.parse(localStorage.getItem("stivenPortfolio"));
+        if (!portfolioData) portfolioData = JSON.parse(JSON.stringify(defaultData));
+
+        let editMode = false;
+
+        // DOM Elements
+        const nameEl = document.getElementById('name');
+        const jobTitleEl = document.getElementById('jobTitle');
+        const bioEl = document.getElementById('bio');
+        const emailLink = document.getElementById('emailLink');
+        const githubLink = document.getElementById('githubLink');
+        const linkedinLink = document.getElementById('linkedinLink');
+        const scholarLink = document.getElementById('scholarLink');
+        const profileImg = document.getElementById('profileImg');
+        const footerTextEl = document.getElementById('footerText');
+        const workContainer = document.getElementById('workContainer');
+        const educationContainer = document.getElementById('educationContainer');
+        const hardSkillsDiv = document.getElementById('hardSkills');
+        const softSkillsDiv = document.getElementById('softSkills');
+        const projectsContainer = document.getElementById('projectsContainer');
+        const achievementsContainer = document.getElementById('achievementsContainer');
+        const toggleBtn = document.getElementById('toggleEditBtn');
+        const resetBtn = document.getElementById('resetBtn');
+
+        function renderAll() {
+            nameEl.innerText = portfolioData.name;
+            jobTitleEl.innerText = portfolioData.jobTitle;
+            bioEl.innerHTML = portfolioData.bio;
+            emailLink.innerHTML = `<i class="fas fa-envelope"></i> ${portfolioData.email}`;
+            emailLink.href = `mailto:${portfolioData.email}`;
+            githubLink.href = portfolioData.github;
+            linkedinLink.href = portfolioData.linkedin;
+            scholarLink.href = portfolioData.scholar;
+            profileImg.src = portfolioData.profileImg;
+            footerTextEl.innerText = portfolioData.footerText;
+
+            // Work
+            workContainer.innerHTML = '';
+            portfolioData.workExperience.forEach(w => {
+                const card = document.createElement('div'); card.className = 'card';
+                card.innerHTML = `<h3 ${editMode ? 'contenteditable' : ''}>${escapeHtml(w.title)}</h3>
+                <div class="company" ${editMode ? 'contenteditable' : ''}>${escapeHtml(w.company)}</div>
+                <div class="date" ${editMode ? 'contenteditable' : ''}>${escapeHtml(w.date)}</div>
+                <ul>${w.desc.map(d => `<li ${editMode ? 'contenteditable' : ''}>${escapeHtml(d)}</li>`).join('')}</ul>
+                ${editMode ? `<button class="delete-work" data-id="${w.id}" style="margin-top:10px; background:#fee; border:none; padding:5px 12px; border-radius:20px;">🗑️ Hapus</button>` : ''}`;
+                if (editMode) card.querySelector('.delete-work')?.addEventListener('click', () => { portfolioData.workExperience = portfolioData.workExperience.filter(x => x.id != w.id); saveAndRender(); });
+                workContainer.appendChild(card);
+            });
+
+            // Education
+            educationContainer.innerHTML = '';
+            portfolioData.education.forEach(e => {
+                const card = document.createElement('div'); card.className = 'card';
+                card.innerHTML = `<h3 ${editMode ? 'contenteditable' : ''}>${escapeHtml(e.degree)}</h3>
+                <div class="company" ${editMode ? 'contenteditable' : ''}>${escapeHtml(e.institution)}</div>
+                <div class="date" ${editMode ? 'contenteditable' : ''}>${escapeHtml(e.year)} ${e.gpa ? `- GPA: ${e.gpa}` : ''}</div>
+                ${editMode ? `<button class="delete-edu" data-id="${e.id}" style="margin-top:10px; background:#fee; border:none; padding:5px 12px; border-radius:20px;">🗑️ Hapus</button>` : ''}`;
+                if (editMode) card.querySelector('.delete-edu')?.addEventListener('click', () => { portfolioData.education = portfolioData.education.filter(x => x.id != e.id); saveAndRender(); });
+                educationContainer.appendChild(card);
+            });
+
+            hardSkillsDiv.innerHTML = portfolioData.hardSkills.map(s => `<span class="skill-tag">${escapeHtml(s)}</span>`).join('');
+            softSkillsDiv.innerHTML = portfolioData.softSkills.map(s => `<span class="skill-tag">${escapeHtml(s)}</span>`).join('');
+
+            projectsContainer.innerHTML = '';
+            portfolioData.projects.forEach(p => {
+                const card = document.createElement('div'); card.className = 'project-card';
+                card.innerHTML = `<h3 ${editMode ? 'contenteditable' : ''}>${escapeHtml(p.name)}</h3>
+                <p ${editMode ? 'contenteditable' : ''} style="margin:10px 0">${escapeHtml(p.desc)}</p>
+                <span class="skill-tag" ${editMode ? 'contenteditable' : ''}>⚙️ ${escapeHtml(p.tech)}</span>
+                ${editMode ? `<button class="delete-project" data-id="${p.id}" style="margin-top:12px; background:#fee; border:none; padding:5px 12px; border-radius:20px;">🗑️ Hapus</button>` : ''}`;
+                if (editMode) card.querySelector('.delete-project')?.addEventListener('click', () => { portfolioData.projects = portfolioData.projects.filter(x => x.id != p.id); saveAndRender(); });
+                projectsContainer.appendChild(card);
+            });
+
+            achievementsContainer.innerHTML = `<ul style="padding-left:20px">${portfolioData.achievements.map(a => `<li ${editMode ? 'contenteditable' : ''}>${escapeHtml(a)}</li>`).join('')}</ul>`;
+        }
+
+        function saveAndRender() { localStorage.setItem("stivenPortfolio", JSON.stringify(portfolioData)); renderAll(); }
+        function syncFromDOMtoState() {
+            portfolioData.name = nameEl.innerText;
+            portfolioData.jobTitle = jobTitleEl.innerText;
+            portfolioData.bio = bioEl.innerText;
+            portfolioData.email = emailLink.innerText.replace('✉️', '').trim();
+            portfolioData.footerText = footerTextEl.innerText;
+            saveAndRender();
+        }
+        function setEditMode(mode) {
+            editMode = mode;
+            [nameEl, jobTitleEl, bioEl, footerTextEl].forEach(el => el.setAttribute('contenteditable', mode));
+            if (mode) {
+                toggleBtn.innerHTML = '<i class="fas fa-save"></i> Nonaktifkan Mode Edit';
+                toggleBtn.classList.add('active');
+                document.getElementById('app').classList.add('editing');
+            } else {
+                syncFromDOMtoState();
+                toggleBtn.innerHTML = '<i class="fas fa-pen"></i> Aktifkan Mode Edit';
+                toggleBtn.classList.remove('active');
+                document.getElementById('app').classList.remove('editing');
+            }
+            renderAll();
+        }
+        function resetToDefault() { if (confirm('Reset ke data awal CV?')) { portfolioData = JSON.parse(JSON.stringify(defaultData)); saveAndRender(); if (editMode) setEditMode(true); } }
+        function escapeHtml(str) { if (!str) return ''; return str.replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[m]); }
+
+        profileImg.addEventListener('click', () => { let url = prompt("URL foto baru:", profileImg.src); if (url) { profileImg.src = url; if (editMode) syncFromDOMtoState(); else { portfolioData.profileImg = url; saveAndRender(); } } });
+        toggleBtn?.addEventListener('click', () => setEditMode(!editMode));
+        resetBtn?.addEventListener('click', resetToDefault);
+        document.getElementById('downloadCVBtn')?.addEventListener('click', (e) => { e.preventDefault(); alert("📄 Upload file PDF CV kamu ke folder website, lalu ganti link download. Saat ini bisa klik kanan simpan jika file sudah ada."); });
+
+        renderAll();
+    </script>
+</body>
+
+</html>
