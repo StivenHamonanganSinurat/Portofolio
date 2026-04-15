@@ -29,15 +29,10 @@
             overflow: hidden;
         }
 
-        /* ========== MODE EDIT - MATIKAN SEBELUM PUSH KE GITHUB ========== */
-        /* HAPUS tanda /* pada baris di bawah untuk AKTIFKAN mode edit */
-        /* KASIH /* di depan baris untuk MATIKAN mode edit (PUBLIK) */
-        /* .edit-mode-buttons { display: flex !important; } */
+        /* MODE EDIT */
         .edit-mode-buttons {
             display: none !important;
         }
-
-        /* ================================================================= */
 
         .edit-bar {
             display: flex;
@@ -68,10 +63,6 @@
             background: #475569;
         }
 
-        .edit-btn.reset:hover {
-            background: #334155;
-        }
-
         .edit-btn.active {
             background: #10b981;
         }
@@ -81,10 +72,9 @@
             outline: 2px dashed #f59e0b;
             padding: 4px 8px;
             border-radius: 12px;
-            transition: 0.1s;
         }
 
-        /* Header Section - Glassmorphism */
+        /* Header */
         .header {
             display: flex;
             flex-wrap: wrap;
@@ -102,7 +92,7 @@
             object-fit: cover;
             border: 4px solid #f59e0b;
             box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.4);
-            background: white;
+            background: #4c1d95;
             cursor: pointer;
             transition: transform 0.3s;
         }
@@ -133,12 +123,10 @@
             background: rgba(0, 0, 0, 0.3);
             padding: 5px 18px;
             border-radius: 40px;
-            backdrop-filter: blur(5px);
         }
 
         .bio {
             line-height: 1.8;
-            opacity: 0.95;
             margin-bottom: 25px;
             font-size: 1.05rem;
             background: rgba(255, 255, 255, 0.08);
@@ -164,17 +152,14 @@
             padding: 8px 20px;
             border-radius: 40px;
             transition: all 0.25s;
-            font-weight: 500;
-            backdrop-filter: blur(4px);
         }
 
         .contact-info a:hover {
             background: #f59e0b;
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.3);
         }
 
-        /* Section styles */
+        /* Section */
         .section {
             padding: 0 50px 30px 50px;
         }
@@ -188,7 +173,6 @@
             color: #1e1b4b;
         }
 
-        /* Grid & Cards */
         .grid-2 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
@@ -207,31 +191,12 @@
         .card:hover {
             transform: translateY(-6px);
             box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.15);
-            border-color: #fcd34d;
         }
 
         .card h3 {
             color: #f59e0b;
             font-size: 1.4rem;
             margin-bottom: 8px;
-        }
-
-        .card .company,
-        .card .date {
-            color: #6b7280;
-            font-size: 0.85rem;
-            margin-bottom: 12px;
-            font-weight: 500;
-        }
-
-        .card ul {
-            padding-left: 20px;
-            color: #374151;
-        }
-
-        .card li {
-            margin: 8px 0;
-            line-height: 1.5;
         }
 
         .skill-tag {
@@ -243,13 +208,6 @@
             font-size: 0.8rem;
             font-weight: 600;
             margin: 5px 6px 0 0;
-            transition: 0.2s;
-        }
-
-        .skill-tag:hover {
-            background: #f59e0b;
-            color: white;
-            transform: scale(1.02);
         }
 
         .project-card {
@@ -258,66 +216,137 @@
             padding: 24px;
             border: 1px solid #e2e8f0;
             transition: 0.25s;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
         }
 
         .project-card:hover {
             border-color: #f59e0b;
-            box-shadow: 0 15px 30px -10px rgba(245, 158, 11, 0.15);
         }
 
-        .project-card h3 {
+        /* Sertifikat Card */
+        .certificate-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            transition: 0.3s;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            border-color: #f59e0b;
+        }
+
+        .certificate-icon {
+            font-size: 2.5rem;
+            color: #f59e0b;
+            margin-bottom: 10px;
+        }
+
+        .certificate-card h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
             color: #1e1b4b;
-            font-size: 1.3rem;
+        }
+
+        .certificate-card p {
+            font-size: 0.75rem;
+            color: #6b7280;
             margin-bottom: 12px;
         }
 
-        .btn-download {
+        .cert-link {
+            background: #f59e0b;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.75rem;
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            background: linear-gradient(135deg, #f59e0b, #d97706);
+            gap: 5px;
+            transition: 0.2s;
+        }
+
+        .cert-link:hover {
+            background: #d97706;
+            transform: scale(1.02);
+        }
+
+        /* MODAL POP UP - UKURAN BESAR */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: transparent;
+            width: 95%;
+            height: 95%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 8px;
+            background: #f5f5f5;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        /* TOMBOL CLOSE - BESAR & JELAS */
+        .close-modal {
+            position: fixed;
+            top: 15px;
+            right: 20px;
+            font-size: 36px;
+            font-weight: bold;
+            cursor: pointer;
             color: white;
-            padding: 14px 36px;
-            border-radius: 60px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem;
-            transition: all 0.25s;
-            margin: 20px 0 40px;
-            box-shadow: 0 8px 18px rgba(245, 158, 11, 0.3);
+            background: #e67e22;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+            z-index: 10000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            border: 2px solid white;
         }
 
-        .btn-download:hover {
-            transform: scale(1.03);
-            box-shadow: 0 12px 25px rgba(245, 158, 11, 0.5);
+        .close-modal:hover {
+            background: #c0392b;
+            transform: scale(1.05);
         }
 
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            background: #f8fafc;
-            color: #64748b;
-            border-top: 1px solid #e2e8f0;
-        }
-
+        /* Mobile */
         @media (max-width: 700px) {
-            .header {
-                padding: 30px;
-                flex-direction: column;
-                text-align: center;
+            .modal-content {
+                width: 98%;
+                height: 90%;
             }
 
-            .section {
-                padding: 0 20px 20px 20px;
-            }
-
-            .grid-2 {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-info {
-                justify-content: center;
+            .close-modal {
+                top: 10px;
+                right: 10px;
+                width: 45px;
+                height: 45px;
+                font-size: 32px;
             }
         }
     </style>
@@ -326,17 +355,16 @@
 <body>
 
     <div class="container" id="app">
-        <!-- TOMBOL EDIT (bisa dihidupkan/mati dari CSS) -->
         <div class="edit-bar edit-mode-buttons">
             <button class="edit-btn" id="toggleEditBtn"><i class="fas fa-pen"></i> Aktifkan Mode Edit</button>
             <button class="edit-btn reset" id="resetBtn"><i class="fas fa-undo-alt"></i> Reset ke Default</button>
         </div>
 
-        <!-- HEADER / PROFIL -->
+        <!-- HEADER -->
         <div class="header">
             <img class="profile-img"
-                src="https://drive.google.com/thumbnail?id=15a-ySwIcfuDXo3NTe2kdjqADJ8So1RaF&sz=w500" alt="Stiven"
-                id="profileImg"
+                src="https://raw.githubusercontent.com/StivenHamonanganSinurat/Portofolio/main/Stiven%20Sinurat.JPG"
+                alt="Stiven" id="profileImg"
                 onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Stiven+Sinurat&background=f59e0b&color=fff&size=180&bold=true&length=2';">
             <div class="header-info">
                 <h1 id="name">Stiven Hamonangan Sinurat</h1>
@@ -347,38 +375,35 @@
                     Dengan logika tajam dan kecintaan pada <strong>problem-solving berbasis data</strong>, saya mampu
                     mengubah
                     kumpulan angka menjadi <strong>wawasan strategis</strong> yang mendorong keputusan bisnis cerdas.
-                    Keahlian komunikasi saya memungkinkan kolaborasi lintas tim yang efektif, serta menyajikan temuan
-                    kompleks menjadi <strong>visualisasi yang jelas, ringkas, dan impactful</strong>. Siap membantu
-                    organisasi Anda bertransformasi menuju <strong>data-driven culture</strong>.
                 </div>
                 <div class="contact-info">
-                    <a href="mailto:stivensinurat1999@gmail.com" id="emailLink"><i class="fas fa-envelope"></i>
+                    <a href="mailto:stivensinurat1999@gmail.com"><i class="fas fa-envelope"></i>
                         stivensinurat1999@gmail.com</a>
-                    <a href="https://github.com/StivenHamonanganSinurat" target="_blank" id="githubLink"><i
-                            class="fab fa-github"></i> GitHub</a>
-                    <a href="https://www.linkedin.com/in/stiven-hamonangan-sinurat" target="_blank" id="linkedinLink"><i
+                    <a href="https://github.com/StivenHamonanganSinurat" target="_blank"><i class="fab fa-github"></i>
+                        GitHub</a>
+                    <a href="https://www.linkedin.com/in/stiven-hamonangan-sinurat" target="_blank"><i
                             class="fab fa-linkedin"></i> LinkedIn</a>
-                    <a href="https://scholar.google.co.id/citations?user=f3ceUwoAAAAJ" target="_blank"
-                        id="scholarLink"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+                    <a href="https://scholar.google.co.id/citations?user=f3ceUwoAAAAJ" target="_blank"><i
+                            class="fas fa-graduation-cap"></i> Google Scholar</a>
                 </div>
             </div>
         </div>
 
-        <!-- PENGALAMAN KERJA -->
+        <!-- PENGALAMAN -->
         <div class="section">
-            <h2 class="section-title" id="workTitle">💼 Pengalaman Profesional</h2>
+            <h2 class="section-title">💼 Pengalaman Profesional</h2>
             <div class="grid-2" id="workContainer"></div>
         </div>
 
         <!-- PENDIDIKAN -->
         <div class="section">
-            <h2 class="section-title" id="eduTitle">🎓 Pendidikan & Akademik</h2>
+            <h2 class="section-title">🎓 Pendidikan & Akademik</h2>
             <div class="grid-2" id="educationContainer"></div>
         </div>
 
-        <!-- KEAHLIAN INTERAKTIF -->
+        <!-- KEAHLIAN -->
         <div class="section">
-            <h2 class="section-title" id="skillsTitle">⚡ Kompetensi & Tools</h2>
+            <h2 class="section-title">⚡ Kompetensi & Tools</h2>
             <div class="card">
                 <h3>🛠️ Hard Skills</h3>
                 <div id="hardSkills"></div>
@@ -387,16 +412,16 @@
             </div>
         </div>
 
-        <!-- PROYEK & RISET -->
+        <!-- PROYEK -->
         <div class="section">
-            <h2 class="section-title" id="projectsTitle">📌 Proyek & Publikasi Ilmiah</h2>
+            <h2 class="section-title">📌 Proyek & Publikasi Ilmiah</h2>
             <div class="grid-2" id="projectsContainer"></div>
         </div>
 
-        <!-- SERTIFIKAT & PRESTASI -->
+        <!-- SERTIFIKAT (dengan pop up) -->
         <div class="section">
-            <h2 class="section-title" id="certTitle">🏆 Sertifikasi & Pencapaian</h2>
-            <div class="card" id="achievementsContainer"></div>
+            <h2 class="section-title">📜 Sertifikat & Penghargaan</h2>
+            <div class="grid-2" id="certificatesContainer"></div>
         </div>
 
         <!-- DOWNLOAD CV -->
@@ -407,106 +432,104 @@
         </div>
 
         <footer>
-            <span id="footerText">© 2025 Stiven Hamonangan Sinurat | Data Scientist & Analyst | Built with 💡</span>
+            <span>© 2025 Stiven Hamonangan Sinurat | Data Scientist & Analyst</span>
         </footer>
     </div>
 
+    <!-- MODAL POP UP -->
+    <div id="pdfModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <iframe id="pdfFrame" src=""></iframe>
+        </div>
+    </div>
+
     <script>
-        // DATA SESUAI CV STIVEN
+        // DATA SERTIFIKAT (LENGKAP DARI GOOGLE DRIVE)
+        const certificatesData = [
+            { name: "MECnIT 2021 - Presenter", date: "2021", url: "https://drive.google.com/file/d/1rIjmYCZaffbms3dxX3UBqsnN_2fPDv_-/preview" },
+            { name: "Certified Business Intelligence (CBIA)", date: "2021", url: "https://drive.google.com/file/d/1-13nhU4tm6_6sEoPjYYzSRxn6UxdWIO1/preview" },
+            { name: "Python for Data Science", date: "2022", url: "https://drive.google.com/file/d/1uUfurHQAfQgGLn0xSuF0ZU_RiRY0Xc4y/preview" },
+            { name: "Machine Learning Beginner to Advance", date: "2022", url: "https://drive.google.com/file/d/19K6iwflVMF9ySMe5SyV-3YBQrrTivrVl/preview" },
+            { name: "Time Series Analysis with Python", date: "2022", url: "https://drive.google.com/file/d/1H0accVDL3dqTe3owoSQVPVR_MsjzkK_K/preview" },
+            { name: "Comptia Network+ & IT Fundamentals", date: "2022", url: "https://drive.google.com/file/d/1rB9ohlDXlbU1ozwQUbxsqAegeQiO0iiM/preview" }
+        ];
+
+        // DATA DEFAULT PORTOFOLIO
         const defaultData = {
             name: "Stiven Hamonangan Sinurat",
             jobTitle: "📊 Data Scientist | Data Analyst | Business Intelligence",
-            bio: "🚀 Saya adalah Data Enthusiast yang percaya bahwa setiap data memiliki cerita dan solusi. Dengan logika tajam dan kecintaan pada problem-solving berbasis data, saya mampu mengubah kumpulan angka menjadi wawasan strategis yang mendorong keputusan bisnis cerdas. Keahlian komunikasi saya memungkinkan kolaborasi lintas tim yang efektif, serta menyajikan temuan kompleks menjadi visualisasi yang jelas, ringkas, dan impactful. Siap membantu organisasi Anda bertransformasi menuju data-driven culture.",
+            bio: "🚀 Saya adalah Data Enthusiast yang percaya bahwa setiap data memiliki cerita dan solusi. Dengan logika tajam dan kecintaan pada problem-solving berbasis data, saya mampu mengubah kumpulan angka menjadi wawasan strategis yang mendorong keputusan bisnis cerdas.",
             email: "stivensinurat1999@gmail.com",
             github: "https://github.com/StivenHamonanganSinurat",
             linkedin: "https://www.linkedin.com/in/stiven-hamonangan-sinurat",
             scholar: "https://scholar.google.co.id/citations?user=f3ceUwoAAAAJ",
-            profileImg: "https://drive.google.com/thumbnail?id=15a-ySwIcfuDXo3NTe2kdjqADJ8So1RaF&sz=w500",
-            footerText: "© 2025 Stiven Hamonangan Sinurat | Data Scientist & Analyst | Built with 💡",
-
+            profileImg: "https://raw.githubusercontent.com/StivenHamonanganSinurat/Portofolio/main/Stiven%20Sinurat.JPG",
+            footerText: "© 2025 Stiven Hamonangan Sinurat | Data Scientist & Analyst",
             workExperience: [
-                { id: "w1", title: "Biro Administrasi Akademik", company: "Universitas Prima Indonesia", date: "2021 - Sekarang", desc: ["Mengelola layanan & pengelolaan data transaksi akademik", "Menyusun kalender akademik & administrasi kelulusan", "Update data kelembagaan ke Kementrian Dikti", "Menambah & mengawal program kerja program studi"] },
+                { id: "w1", title: "Biro Administrasi Akademik", company: "Universitas Prima Indonesia", date: "2021 - Sekarang", desc: ["Mengelola layanan & pengelolaan data transaksi akademik", "Menyusun kalender akademik & administrasi kelulusan", "Update data kelembagaan ke Kementrian Dikti"] },
                 { id: "w2", title: "Asisten Dosen", company: "Universitas Prima Indonesia", date: "2020 - 2021", desc: ["Membantu kegiatan belajar mengajar & penelitian", "Mengelola nilai, kehadiran, dan konsultasi mahasiswa", "Pendampingan praktikum & tugas akhir"] },
                 { id: "w3", title: "Tim Akreditasi Sistem Informasi", company: "Universitas Prima Indonesia", date: "2022", desc: ["Mengumpulkan & menganalisis data untuk borang akreditasi", "Menyusun dokumen pendukung & konsultasi asesor", "Mendapatkan Akreditasi Baik Sekali"] },
                 { id: "w4", title: "Data Scientist Intern", company: "Dinas Ketenagakerjaan Kota Medan", date: "2020", desc: ["Input & rekonsiliasi data perusahaan", "Membangun rancangan aplikasi penggajian berbasis desktop", "Otomatisasi pelaporan data"] }
             ],
-
             education: [
                 { id: "e1", degree: "S1 Sistem Informasi", institution: "Universitas Prima Indonesia", gpa: "3.65/4.00", year: "2020 - 2024" },
-                { id: "e2", degree: "D3/S1 Sistem Informasi", institution: "STIKOM Medan", year: "2017 - 2020" },
+                { id: "e2", degree: "Sistem Informasi", institution: "STIKOM Medan", year: "2017 - 2020" },
                 { id: "e3", degree: "Teknik Mesin", institution: "SMK Negeri 2 Pematangsiantar", year: "2014 - 2017" }
             ],
-
-            hardSkills: ["Python (Pandas, NumPy, Scikit-learn)", "Machine Learning", "Time Series Analysis", "NLP", "Power BI", "Looker Studio", "SPSS", "Excel (Advanced)", "SQL", "Data Mining", "Tableau", "Comptia Network+"],
-            softSkills: ["Analytical Thinking", "Problem Solving", "Team Collaboration", "Data Storytelling", "Time Management", "Critical Thinking", "Adaptability"],
-
+            hardSkills: ["Python", "Machine Learning", "Time Series Analysis", "NLP", "Power BI", "Looker Studio", "SPSS", "Excel", "SQL", "Data Mining", "Tableau"],
+            softSkills: ["Analytical Thinking", "Problem Solving", "Team Collaboration", "Data Storytelling", "Time Management"],
             projects: [
-                { id: "p1", name: "📄 Publikasi Internasional MECnIT 2021", desc: "Penelitian tentang Data Mining & Machine Learning untuk prediksi pola data akademik. Diterima sebagai conference paper internasional.", tech: "Python, Weka, RapidMiner" },
-                { id: "p2", name: "Modul Pengajaran Testing & Implementasi", desc: "Mengembangkan modul ajar untuk mata kuliah pengujian perangkat lunak dan implementasi sistem.", tech: "Software Testing, Documentation, UML" },
-                { id: "p3", name: "Time Series Forecasting dengan Python", desc: "Membangun model forecasting untuk data deret waktu menggunakan ARIMA dan Prophet.", tech: "Python, Statsmodels, Prophet" },
-                { id: "p4", name: "Dashboard UMKM Interaktif", desc: "Membuat dashboard analitik untuk memantau performa UMKM berbasis Power BI.", tech: "Power BI, DAX, Excel" }
-            ],
-
-            achievements: [
-                "🎓 Contributor Author - International Conference MECnIT 2021",
-                "🏆 Runner Up Expo UNPRI The Best UMKM (2021)",
-                "⭐ Akreditasi Baik Sekali (Tim Akreditasi Sistem Informasi 2022)",
-                "📜 CIBIA (Certified International Business Intelligence Associate)",
-                "📜 Python for Applied Statistics (Data Scientist) - 2022",
-                "📜 Data Analysis, Data Science & Machine Learning with R",
-                "📜 Udemy: Python for Data Analysis & Visualization",
-                "📜 Udemy: Machine Learning Python Beginner to Advance",
-                "📜 Time Series Analysis & Forecasting using Python",
-                "📜 Comptia Network+ & IT Fundamentals"
+                { id: "p1", name: "Publikasi Internasional MECnIT 2021", desc: "Penelitian Data Mining & Machine Learning untuk prediksi pola data akademik.", tech: "Python, Weka, RapidMiner" },
+                { id: "p2", name: "Modul Pengajaran Testing & Implementasi", desc: "Mengembangkan modul ajar untuk mata kuliah pengujian perangkat lunak.", tech: "Software Testing, UML" },
+                { id: "p3", name: "Time Series Forecasting", desc: "Membangun model forecasting untuk data deret waktu menggunakan ARIMA.", tech: "Python, Statsmodels, Prophet" },
+                { id: "p4", name: "Dashboard UMKM Interaktif", desc: "Dashboard analitik untuk memantau performa UMKM.", tech: "Power BI, DAX, Excel" }
             ]
         };
 
         let portfolioData = JSON.parse(localStorage.getItem("stivenPortfolio"));
         if (!portfolioData) portfolioData = JSON.parse(JSON.stringify(defaultData));
-
         let editMode = false;
 
         // DOM Elements
-        const nameEl = document.getElementById('name');
-        const jobTitleEl = document.getElementById('jobTitle');
-        const bioEl = document.getElementById('bio');
-        const emailLink = document.getElementById('emailLink');
-        const githubLink = document.getElementById('githubLink');
-        const linkedinLink = document.getElementById('linkedinLink');
-        const scholarLink = document.getElementById('scholarLink');
         const profileImg = document.getElementById('profileImg');
-        const footerTextEl = document.getElementById('footerText');
         const workContainer = document.getElementById('workContainer');
         const educationContainer = document.getElementById('educationContainer');
         const hardSkillsDiv = document.getElementById('hardSkills');
         const softSkillsDiv = document.getElementById('softSkills');
         const projectsContainer = document.getElementById('projectsContainer');
-        const achievementsContainer = document.getElementById('achievementsContainer');
-        const toggleBtn = document.getElementById('toggleEditBtn');
-        const resetBtn = document.getElementById('resetBtn');
+        const certificatesContainer = document.getElementById('certificatesContainer');
+
+        // Modal Elements
+        const modal = document.getElementById('pdfModal');
+        const pdfFrame = document.getElementById('pdfFrame');
+        const closeModal = document.querySelector('.close-modal');
+
+        function openPDFModal(url) {
+            pdfFrame.src = url;
+            modal.style.display = 'flex';
+        }
+
+        closeModal.onclick = function () {
+            modal.style.display = 'none';
+            pdfFrame.src = '';
+        }
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+                pdfFrame.src = '';
+            }
+        }
 
         function renderAll() {
-            nameEl.innerText = portfolioData.name;
-            jobTitleEl.innerText = portfolioData.jobTitle;
-            bioEl.innerHTML = portfolioData.bio;
-            emailLink.innerHTML = `<i class="fas fa-envelope"></i> ${portfolioData.email}`;
-            emailLink.href = `mailto:${portfolioData.email}`;
-            githubLink.href = portfolioData.github;
-            linkedinLink.href = portfolioData.linkedin;
-            scholarLink.href = portfolioData.scholar;
-            profileImg.src = portfolioData.profileImg;
-            footerTextEl.innerText = portfolioData.footerText;
-
             // Work
             workContainer.innerHTML = '';
             portfolioData.workExperience.forEach(w => {
                 const card = document.createElement('div'); card.className = 'card';
-                card.innerHTML = `<h3 ${editMode ? 'contenteditable' : ''}>${escapeHtml(w.title)}</h3>
-                <div class="company" ${editMode ? 'contenteditable' : ''}>${escapeHtml(w.company)}</div>
-                <div class="date" ${editMode ? 'contenteditable' : ''}>${escapeHtml(w.date)}</div>
-                <ul>${w.desc.map(d => `<li ${editMode ? 'contenteditable' : ''}>${escapeHtml(d)}</li>`).join('')}</ul>
-                ${editMode ? `<button class="delete-work" data-id="${w.id}" style="margin-top:10px; background:#fee; border:none; padding:5px 12px; border-radius:20px;">🗑️ Hapus</button>` : ''}`;
-                if (editMode) card.querySelector('.delete-work')?.addEventListener('click', () => { portfolioData.workExperience = portfolioData.workExperience.filter(x => x.id != w.id); saveAndRender(); });
+                card.innerHTML = `<h3>${escapeHtml(w.title)}</h3>
+            <div class="company">${escapeHtml(w.company)}</div>
+            <div class="date">${escapeHtml(w.date)}</div>
+            <ul>${w.desc.map(d => `<li>${escapeHtml(d)}</li>`).join('')}</ul>`;
                 workContainer.appendChild(card);
             });
 
@@ -514,62 +537,53 @@
             educationContainer.innerHTML = '';
             portfolioData.education.forEach(e => {
                 const card = document.createElement('div'); card.className = 'card';
-                card.innerHTML = `<h3 ${editMode ? 'contenteditable' : ''}>${escapeHtml(e.degree)}</h3>
-                <div class="company" ${editMode ? 'contenteditable' : ''}>${escapeHtml(e.institution)}</div>
-                <div class="date" ${editMode ? 'contenteditable' : ''}>${escapeHtml(e.year)} ${e.gpa ? `- GPA: ${e.gpa}` : ''}</div>
-                ${editMode ? `<button class="delete-edu" data-id="${e.id}" style="margin-top:10px; background:#fee; border:none; padding:5px 12px; border-radius:20px;">🗑️ Hapus</button>` : ''}`;
-                if (editMode) card.querySelector('.delete-edu')?.addEventListener('click', () => { portfolioData.education = portfolioData.education.filter(x => x.id != e.id); saveAndRender(); });
+                card.innerHTML = `<h3>${escapeHtml(e.degree)}</h3>
+            <div class="company">${escapeHtml(e.institution)}</div>
+            <div class="date">${escapeHtml(e.year)} ${e.gpa ? `- GPA: ${e.gpa}` : ''}</div>`;
                 educationContainer.appendChild(card);
             });
 
+            // Skills
             hardSkillsDiv.innerHTML = portfolioData.hardSkills.map(s => `<span class="skill-tag">${escapeHtml(s)}</span>`).join('');
             softSkillsDiv.innerHTML = portfolioData.softSkills.map(s => `<span class="skill-tag">${escapeHtml(s)}</span>`).join('');
 
+            // Projects
             projectsContainer.innerHTML = '';
             portfolioData.projects.forEach(p => {
                 const card = document.createElement('div'); card.className = 'project-card';
-                card.innerHTML = `<h3 ${editMode ? 'contenteditable' : ''}>${escapeHtml(p.name)}</h3>
-                <p ${editMode ? 'contenteditable' : ''} style="margin:10px 0">${escapeHtml(p.desc)}</p>
-                <span class="skill-tag" ${editMode ? 'contenteditable' : ''}>⚙️ ${escapeHtml(p.tech)}</span>
-                ${editMode ? `<button class="delete-project" data-id="${p.id}" style="margin-top:12px; background:#fee; border:none; padding:5px 12px; border-radius:20px;">🗑️ Hapus</button>` : ''}`;
-                if (editMode) card.querySelector('.delete-project')?.addEventListener('click', () => { portfolioData.projects = portfolioData.projects.filter(x => x.id != p.id); saveAndRender(); });
+                card.innerHTML = `<h3>${escapeHtml(p.name)}</h3>
+            <p style="margin:10px 0">${escapeHtml(p.desc)}</p>
+            <span class="skill-tag">⚙️ ${escapeHtml(p.tech)}</span>`;
                 projectsContainer.appendChild(card);
             });
 
-            achievementsContainer.innerHTML = `<ul style="padding-left:20px">${portfolioData.achievements.map(a => `<li ${editMode ? 'contenteditable' : ''}>${escapeHtml(a)}</li>`).join('')}</ul>`;
+            // Certificates (dengan tombol pop up)
+            certificatesContainer.innerHTML = '';
+            certificatesData.forEach(cert => {
+                const card = document.createElement('div'); card.className = 'certificate-card';
+                card.innerHTML = `
+                <div class="certificate-icon"><i class="fas fa-certificate"></i></div>
+                <h4>${escapeHtml(cert.name)}</h4>
+                <p>${escapeHtml(cert.date)}</p>
+                <button class="cert-link" data-url="${cert.url}">
+                    <i class="fas fa-eye"></i> Lihat Sertifikat
+                </button>
+            `;
+                const btn = card.querySelector('.cert-link');
+                btn.addEventListener('click', () => openPDFModal(btn.getAttribute('data-url')));
+                certificatesContainer.appendChild(card);
+            });
         }
 
-        function saveAndRender() { localStorage.setItem("stivenPortfolio", JSON.stringify(portfolioData)); renderAll(); }
-        function syncFromDOMtoState() {
-            portfolioData.name = nameEl.innerText;
-            portfolioData.jobTitle = jobTitleEl.innerText;
-            portfolioData.bio = bioEl.innerText;
-            portfolioData.email = emailLink.innerText.replace('✉️', '').trim();
-            portfolioData.footerText = footerTextEl.innerText;
-            saveAndRender();
-        }
-        function setEditMode(mode) {
-            editMode = mode;
-            [nameEl, jobTitleEl, bioEl, footerTextEl].forEach(el => el.setAttribute('contenteditable', mode));
-            if (mode) {
-                toggleBtn.innerHTML = '<i class="fas fa-save"></i> Nonaktifkan Mode Edit';
-                toggleBtn.classList.add('active');
-                document.getElementById('app').classList.add('editing');
-            } else {
-                syncFromDOMtoState();
-                toggleBtn.innerHTML = '<i class="fas fa-pen"></i> Aktifkan Mode Edit';
-                toggleBtn.classList.remove('active');
-                document.getElementById('app').classList.remove('editing');
-            }
-            renderAll();
-        }
-        function resetToDefault() { if (confirm('Reset ke data awal CV?')) { portfolioData = JSON.parse(JSON.stringify(defaultData)); saveAndRender(); if (editMode) setEditMode(true); } }
         function escapeHtml(str) { if (!str) return ''; return str.replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' })[m]); }
 
-        profileImg.addEventListener('click', () => { let url = prompt("URL foto baru:", profileImg.src); if (url) { profileImg.src = url; if (editMode) syncFromDOMtoState(); else { portfolioData.profileImg = url; saveAndRender(); } } });
-        toggleBtn?.addEventListener('click', () => setEditMode(!editMode));
-        resetBtn?.addEventListener('click', resetToDefault);
-        document.getElementById('downloadCVBtn')?.addEventListener('click', (e) => { e.preventDefault(); alert("📄 Upload file PDF CV kamu ke folder website, lalu ganti link download. Saat ini bisa klik kanan simpan jika file sudah ada."); });
+        // Ganti foto manual
+        profileImg.addEventListener('click', () => {
+            let url = prompt("URL foto baru:", profileImg.src);
+            if (url) { profileImg.src = url; portfolioData.profileImg = url; localStorage.setItem("stivenPortfolio", JSON.stringify(portfolioData)); }
+        });
+
+        document.getElementById('downloadCVBtn')?.addEventListener('click', (e) => { e.preventDefault(); alert("📄 Upload file PDF CV kamu ke folder website."); });
 
         renderAll();
     </script>
